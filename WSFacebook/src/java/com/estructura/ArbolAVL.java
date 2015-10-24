@@ -357,7 +357,7 @@ public class ArbolAVL {
      * se generara una imagen con el nombre recibido con extensión .png
      */
     public void graficarArbol(String nombre){
-        nombreGra = nombre + System.currentTimeMillis() +".png";
+        nombreGra = "/home/walter/Escritorio/"+nombre + System.currentTimeMillis() +".png";
         gv = new GraphViz();
         gv.addln("graph {");
         auxGraph(gv, raiz);

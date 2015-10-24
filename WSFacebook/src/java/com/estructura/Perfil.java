@@ -20,6 +20,7 @@ public class Perfil implements Comparar {
     private String password;
     private String nombre;
     private AVLSeguidores seguidores;
+    private AVLSeguidores sigo;
     private ListaEventos eventos;
     private ListaPublicaciones publicacion;
     
@@ -31,11 +32,63 @@ public class Perfil implements Comparar {
         this.correo = correo;
     }
     
+    public void dejarSeguir(String correo){
+        sigo.eliminar(correo);
+    }
+    
+    public void quitarSeguidor(String correo){
+        seguidores.eliminar(correo);
+    }
+    
+    public ListaPublicaciones getPublicacionesP(){
+        return publicacion;
+    }
+    
+    public void eliminarPublicacion(String correo, int pos){
+        Seguidor aux = seguidores.buscar(correo);
+        if(aux!=null){
+            aux.eliminarPublicacion(pos);
+        }
+    }
+    
+    public void agregarPSigo(String correo, String nombre){
+        sigo.insertarSeguidor(correo, nombre);
+    }
+    
+    public AVLSeguidores getSeguidores(){
+        return seguidores;
+    }
+    
+    public AVLSeguidores getSigo(){
+        return sigo;
+    }
+    
+    public void publicacionPersonal(String titulo,String contenido){
+        Publicacion aux = new Publicacion('t',titulo,contenido);
+        this.publicacion.insertar(aux);
+    }
+    
+    public void publicacionSeguidor(String correo,char t,String titulo,String contenido){
+        Seguidor aux = seguidores.buscar(correo);
+        if(aux!=null){
+            Publicacion np = new Publicacion(t,titulo,contenido);
+            aux.hacerPublicacion(np);
+        }
+    }
+    
+    public void graficarPublicacion(String correo){
+        if(correo.equals(this.correo)){
+            
+        }else{
+        }
+    }
+    
     public Perfil(String correo,String nombre, String password){
         this.correo = correo;
         this.nombre = nombre;
         this.password= password;
         seguidores = new AVLSeguidores();
+        sigo = new AVLSeguidores();
         eventos = new ListaEventos();
         publicacion = new ListaPublicaciones();
     }
@@ -127,4 +180,12 @@ public class Perfil implements Comparar {
         this.eventos.insertar(ev);
     }
     
+    
+    public void graficarSeguidores(){
+        seguidores.graficar();
+    }
+    
+    public Publicacion[] getPublicaciones(){
+        return publicacion.getPublicaciones();
+    }
 }

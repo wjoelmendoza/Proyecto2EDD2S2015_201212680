@@ -355,7 +355,7 @@ public class ArbolB {
     }
     
     public void graficar1(){
-        String nombre = "arbolb"+System.currentTimeMillis()+"." ;
+        String nombre = "/home/walter/Escritorio/arbolb"+System.currentTimeMillis()+"." ;
         String tipo = "png";
         gv = new GraphViz();
         gv.addln("digraph{");

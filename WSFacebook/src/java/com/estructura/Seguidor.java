@@ -25,6 +25,10 @@ public class Seguidor implements Comparar{
         publicaciones = new ListaPublicaciones();
     }
 
+    Seguidor(String correo) {
+        this.correo= correo;
+    }
+
     public String getCorreo(){
         return correo;
     }
@@ -77,7 +81,7 @@ public class Seguidor implements Comparar{
     /**
      * pendiente de implementar
      */
-    public void eliminarPublicacion(){
-        publicaciones.eliminarPublicacion();
+    public void eliminarPublicacion(int pos){
+        publicaciones.eliminarPublicacion(pos);
     }
 }

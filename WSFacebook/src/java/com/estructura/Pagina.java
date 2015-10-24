@@ -32,15 +32,18 @@ public class Pagina {
         String aux ="n" +  this.hashCode()+"[ label =\""; 
         int i=0;
         for( i =1; i <= cuentas; i++){
-            if(i == 1)
-                aux += claves[i].toString();
+            if(i == 1){
+                aux += claves[i].getCorreo();
+                aux += "\n"+claves[i].getNombre();
+            }
             else
-                aux +=  "|"+claves[i].toString();
+                aux +=  "|"+claves[i].getCorreo();
         }
         aux += "\"];\n";
         
         for(i=0; i<=cuentas && ramas[i]!=null; i++){
-            
+            aux += ramas[i].graficar();
+            aux += "n" + this.hashCode()+"->n" + ramas[i].hashCode()+";\n";
         }
         
         return aux;

@@ -30,4 +30,12 @@ public class AVLSeguidores {
             aux2 = (Seguidor) com;
         return aux2;
     }
+    
+    public void eliminar(String correo){
+        seguidores.eliminar(new Seguidor(correo));
+    }
+    
+    public void graficar(){
+        seguidores.graficarArbol("seguidor");
+    }
 }
