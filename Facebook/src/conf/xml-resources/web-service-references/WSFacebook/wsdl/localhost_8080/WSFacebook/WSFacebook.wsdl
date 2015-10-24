@@ -4,11 +4,14 @@
 <xsd:import namespace="http://webservice.com/" schemaLocation="http://localhost:8080/WSFacebook/WSFacebook?xsd=1" />
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello" />
+<message name="getPublicacionesP">
+<part name="parameters" element="tns:getPublicacionesP" />
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse" />
+<message name="getPublicacionesPResponse">
+<part name="parameters" element="tns:getPublicacionesPResponse" />
+</message>
+<message name="eliminarPerfil">
+<part name="parameters" element="tns:eliminarPerfil" />
 </message>
 <message name="buscarUsuario">
 <part name="parameters" element="tns:buscarUsuario" />
@@ -16,25 +19,112 @@
 <message name="buscarUsuarioResponse">
 <part name="parameters" element="tns:buscarUsuarioResponse" />
 </message>
+<message name="graficarSeguidores">
+<part name="parameters" element="tns:graficarSeguidores" />
+</message>
+<message name="eliminarComentario">
+<part name="parameters" element="tns:eliminarComentario" />
+</message>
+<message name="publicarTexto">
+<part name="parameters" element="tns:publicarTexto" />
+</message>
+<message name="getSeguidores">
+<part name="parameters" element="tns:getSeguidores" />
+</message>
+<message name="getSeguidoresResponse">
+<part name="parameters" element="tns:getSeguidoresResponse" />
+</message>
+<message name="addSeguidor">
+<part name="parameters" element="tns:addSeguidor" />
+</message>
+<message name="graficarArbolB">
+<part name="parameters" element="tns:graficarArbolB" />
+</message>
+<message name="dejarSeguir">
+<part name="parameters" element="tns:dejarSeguir" />
+</message>
 <message name="agregarUsuario">
 <part name="parameters" element="tns:agregarUsuario" />
 </message>
+<message name="actPerfil">
+<part name="parameters" element="tns:actPerfil" />
+</message>
+<message name="publicacionGroveShark">
+<part name="parameters" element="tns:publicacionGroveShark" />
+</message>
+<message name="actCorreo">
+<part name="parameters" element="tns:actCorreo" />
+</message>
+<message name="verificarUsuarioG">
+<part name="parameters" element="tns:verificarUsuarioG" />
+</message>
+<message name="verificarUsuarioGResponse">
+<part name="parameters" element="tns:verificarUsuarioGResponse" />
+</message>
+<message name="getPublicacionP">
+<part name="parameters" element="tns:getPublicacionP" />
+</message>
+<message name="getPublicacionPResponse">
+<part name="parameters" element="tns:getPublicacionPResponse" />
+</message>
 <portType name="WSFacebook">
-<operation name="hello">
-<input wsam:Action="http://webservice.com/WSFacebook/helloRequest" message="tns:hello" />
-<output wsam:Action="http://webservice.com/WSFacebook/helloResponse" message="tns:helloResponse" />
+<operation name="getPublicacionesP">
+<input wsam:Action="http://webservice.com/WSFacebook/getPublicacionesPRequest" message="tns:getPublicacionesP" />
+<output wsam:Action="http://webservice.com/WSFacebook/getPublicacionesPResponse" message="tns:getPublicacionesPResponse" />
+</operation>
+<operation name="eliminarPerfil">
+<input wsam:Action="http://webservice.com/WSFacebook/eliminarPerfil" message="tns:eliminarPerfil" />
 </operation>
 <operation name="buscarUsuario">
 <input wsam:Action="http://webservice.com/WSFacebook/buscarUsuarioRequest" message="tns:buscarUsuario" />
 <output wsam:Action="http://webservice.com/WSFacebook/buscarUsuarioResponse" message="tns:buscarUsuarioResponse" />
 </operation>
+<operation name="graficarSeguidores">
+<input wsam:Action="http://webservice.com/WSFacebook/graficarSeguidores" message="tns:graficarSeguidores" />
+</operation>
+<operation name="eliminarComentario">
+<input wsam:Action="http://webservice.com/WSFacebook/eliminarComentario" message="tns:eliminarComentario" />
+</operation>
+<operation name="publicarTexto">
+<input wsam:Action="http://webservice.com/WSFacebook/publicarTexto" message="tns:publicarTexto" />
+</operation>
+<operation name="getSeguidores">
+<input wsam:Action="http://webservice.com/WSFacebook/getSeguidoresRequest" message="tns:getSeguidores" />
+<output wsam:Action="http://webservice.com/WSFacebook/getSeguidoresResponse" message="tns:getSeguidoresResponse" />
+</operation>
+<operation name="addSeguidor">
+<input wsam:Action="http://webservice.com/WSFacebook/addSeguidor" message="tns:addSeguidor" />
+</operation>
+<operation name="graficarArbolB">
+<input wsam:Action="http://webservice.com/WSFacebook/graficarArbolB" message="tns:graficarArbolB" />
+</operation>
+<operation name="dejarSeguir">
+<input wsam:Action="http://webservice.com/WSFacebook/dejarSeguir" message="tns:dejarSeguir" />
+</operation>
 <operation name="agregarUsuario">
 <input wsam:Action="http://webservice.com/WSFacebook/agregarUsuario" message="tns:agregarUsuario" />
+</operation>
+<operation name="actPerfil">
+<input wsam:Action="http://webservice.com/WSFacebook/actPerfil" message="tns:actPerfil" />
+</operation>
+<operation name="publicacionGroveShark">
+<input wsam:Action="http://webservice.com/WSFacebook/publicacionGroveShark" message="tns:publicacionGroveShark" />
+</operation>
+<operation name="actCorreo">
+<input wsam:Action="http://webservice.com/WSFacebook/actCorreo" message="tns:actCorreo" />
+</operation>
+<operation name="verificarUsuarioG">
+<input wsam:Action="http://webservice.com/WSFacebook/verificarUsuarioGRequest" message="tns:verificarUsuarioG" />
+<output wsam:Action="http://webservice.com/WSFacebook/verificarUsuarioGResponse" message="tns:verificarUsuarioGResponse" />
+</operation>
+<operation name="getPublicacionP">
+<input wsam:Action="http://webservice.com/WSFacebook/getPublicacionPRequest" message="tns:getPublicacionP" />
+<output wsam:Action="http://webservice.com/WSFacebook/getPublicacionPResponse" message="tns:getPublicacionPResponse" />
 </operation>
 </portType>
 <binding name="WSFacebookPortBinding" type="tns:WSFacebook">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="hello">
+<operation name="getPublicacionesP">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -42,6 +132,12 @@
 <output>
 <soap:body use="literal" />
 </output>
+</operation>
+<operation name="eliminarPerfil">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
 </operation>
 <operation name="buscarUsuario">
 <soap:operation soapAction="" />
@@ -52,11 +148,92 @@
 <soap:body use="literal" />
 </output>
 </operation>
+<operation name="graficarSeguidores">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="eliminarComentario">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="publicarTexto">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="getSeguidores">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="addSeguidor">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="graficarArbolB">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="dejarSeguir">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
 <operation name="agregarUsuario">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
 </input>
+</operation>
+<operation name="actPerfil">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="publicacionGroveShark">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="actCorreo">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+</operation>
+<operation name="verificarUsuarioG">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="getPublicacionP">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
 </operation>
 </binding>
 <service name="WSFacebook">

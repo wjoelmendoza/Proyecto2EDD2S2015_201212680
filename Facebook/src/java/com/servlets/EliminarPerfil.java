@@ -6,9 +6,9 @@
 package com.servlets;
 
 import com.usuarios.UserF;
-import com.webservice.Perfil;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author walter
  */
-public class LoginUser extends HttpServlet {
+@WebServlet(name = "EliminarPerfil", urlPatterns = {"/EliminarPerfil"})
+public class EliminarPerfil extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,7 +32,6 @@ public class LoginUser extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("/Facebook/Usuario/Inicio.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,7 +46,7 @@ public class LoginUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.sendRedirect("/Facebook/");
+        processRequest(request, response);
     }
 
     /**
@@ -60,18 +60,11 @@ public class LoginUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String pBusqueda = request.getParameter("pBusqueda");
-        String contra = request.getParameter("pContra");
-        Perfil aux = this.buscarUsuario(pBusqueda);
+        response.sendRedirect("/Facebook/");
         HttpSession sesion = request.getSession();
-        if(aux != null){
-            if(aux.getPassword().equals(contra)){
-                sesion.setAttribute("usuarioL", new UserF(aux.getCorreo(),aux.getNombre()));
-                processRequest(request, response);
-            }else
-                response.sendRedirect("/Facebook/");    
-        }else
-            response.sendRedirect("/Facebook/");
+        UserF user = (UserF) sesion.getAttribute("usuarioL");
+        String contra = request.getParameter("uContra");
+        this.eliminarPerfil(user.getCorreo(), contra);
     }
 
     /**
@@ -84,11 +77,10 @@ public class LoginUser extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private Perfil buscarUsuario(java.lang.String pBusqueda) {
+    private void eliminarPerfil(java.lang.String uCorreo, java.lang.String uContra) {
         com.webservice.WSFacebook_Service service = new com.webservice.WSFacebook_Service();
         com.webservice.WSFacebook port = service.getWSFacebookPort();
-        return port.buscarUsuario(pBusqueda);
+        port.eliminarPerfil(uCorreo, uContra);
     }
-
     
 }

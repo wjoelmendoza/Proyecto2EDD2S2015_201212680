@@ -1,0 +1,10 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div id="header">
+    <header id="principal">
+        <span id="titulo">
+            <h1>FalseBook</h1>
+            <div class="description">Red Social</div>
+        </span>
+    </header>
+</div>
