@@ -12,6 +12,10 @@
 
 <xs:element name="buscarUsuarioResponse" type="tns:buscarUsuarioResponse" />
 
+<xs:element name="cambioContra" type="tns:cambioContra" />
+
+<xs:element name="cargarFoto" type="tns:cargarFoto" />
+
 <xs:element name="dejarSeguir" type="tns:dejarSeguir" />
 
 <xs:element name="eliminarComentario" type="tns:eliminarComentario" />
@@ -33,6 +37,12 @@
 <xs:element name="graficarArbolB" type="tns:graficarArbolB" />
 
 <xs:element name="graficarSeguidores" type="tns:graficarSeguidores" />
+
+<xs:element name="graphPublicacion" type="tns:graphPublicacion" />
+
+<xs:element name="obtenerFoto" type="tns:obtenerFoto" />
+
+<xs:element name="obtenerFotoResponse" type="tns:obtenerFotoResponse" />
 
 <xs:element name="publicacionGroveShark" type="tns:publicacionGroveShark" />
 
@@ -59,6 +69,8 @@
 <xs:element name="correo" type="xs:string" minOccurs="0" />
 <xs:element name="edad" type="xs:int" />
 <xs:element name="estdoC" type="xs:string" minOccurs="0" />
+<xs:element name="ext" type="xs:string" minOccurs="0" />
+<xs:element name="foto" type="xs:string" minOccurs="0" />
 <xs:element name="genero" type="xs:string" minOccurs="0" />
 <xs:element name="nombre" type="xs:string" minOccurs="0" />
 <xs:element name="pais" type="xs:string" minOccurs="0" />
@@ -77,6 +89,14 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="cargarFoto">
+<xs:sequence>
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="ext" type="xs:string" minOccurs="0" />
+<xs:element name="uFoto" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="eliminarPerfil">
 <xs:sequence>
 <xs:element name="uCorreo" type="xs:string" minOccurs="0" />
@@ -92,18 +112,18 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="publicarTexto">
+<xs:complexType name="publicacionGroveShark">
 <xs:sequence>
 <xs:element name="uCorreo" type="xs:string" minOccurs="0" />
-<xs:element name="sCorreo" type="xs:string" minOccurs="0" />
 <xs:element name="titulo" type="xs:string" minOccurs="0" />
 <xs:element name="contenido" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="publicacionGroveShark">
+<xs:complexType name="publicarTexto">
 <xs:sequence>
 <xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="sCorreo" type="xs:string" minOccurs="0" />
 <xs:element name="titulo" type="xs:string" minOccurs="0" />
 <xs:element name="contenido" type="xs:string" minOccurs="0" />
 </xs:sequence>
@@ -133,6 +153,18 @@
 <xs:sequence />
 </xs:complexType>
 
+<xs:complexType name="obtenerFoto">
+<xs:sequence>
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerFotoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="actCorreo">
 <xs:sequence>
 <xs:element name="uCorreo" type="xs:string" minOccurs="0" />
@@ -158,6 +190,13 @@
 <xs:element name="imagen" type="xs:string" minOccurs="0" />
 <xs:element name="tipo" type="xs:unsignedShort" />
 <xs:element name="titulo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graphPublicacion">
+<xs:sequence>
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="sCorreo" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
@@ -191,10 +230,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="graficarArbolB">
-<xs:sequence />
-</xs:complexType>
-
 <xs:complexType name="verificarUsuarioG">
 <xs:sequence>
 <xs:element name="uCorreo" type="xs:string" minOccurs="0" />
@@ -204,6 +239,18 @@
 <xs:complexType name="verificarUsuarioGResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graficarArbolB">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="cambioContra">
+<xs:sequence>
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="actContra" type="xs:string" minOccurs="0" />
+<xs:element name="nContra" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 

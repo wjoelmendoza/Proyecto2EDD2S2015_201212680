@@ -12,6 +12,8 @@ package com.usuarios;
 public class UserF {
     private String correo;
     private String nombre;
+    private String foto64;
+    private String ext;
     /**
      * buscar como reputas mantener actualizada la foto
      */
@@ -24,6 +26,7 @@ public class UserF {
     public UserF(String correo, String nombre){
         this.correo = correo ;
         this.nombre = nombre;
+        foto64 ="";
     }
     
     
@@ -41,5 +44,20 @@ public class UserF {
     
     public String getNombre(){
         return nombre;
+    }
+    
+    public String getExt(){
+        return ext;
+    }
+    
+    public String getFoto(){
+        return foto64;
+    }
+    
+    public void setExt(String ext){
+        this.ext = ext;
+    }
+    public void setFoto(String foto64){
+        this.foto64 = foto64;
     }
 }

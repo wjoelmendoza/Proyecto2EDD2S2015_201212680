@@ -22,7 +22,12 @@
                <div id="contentarea">
                    <div id="contenido">
                         <h3>Cambio de correo</h3>
-                        <form>
+                        <form method="post" action="/Facebook/CambioCorreo">
+                             <%
+                                HttpSession sesion = request.getSession();
+                                UserF user =(UserF) sesion.getAttribute("usuarioL");
+                                out.println("<input name='uCorreo' value='"+user.getCorreo()+"' hidden>");
+                            %>
                             <table>
                                 <tr>
                                     <td>

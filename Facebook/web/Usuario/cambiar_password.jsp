@@ -23,14 +23,19 @@
                    <div id="contenido">
                        <h3>Cambiar Contraseña:</h3>
                        <p>por su seguridad nos debe de proporcionar su contraseña actual<br>y debe de ingresar 2 veces su nueva contraseña.</p>
-                        <form>
+                       <form method="post" action="/Facebook/CabioContra" >
+                            <%
+                                HttpSession sesion = request.getSession();
+                                UserF user =(UserF) sesion.getAttribute("usuarioL");
+                                out.println("<input name='uCorreo' value='"+user.getCorreo()+"' hidden>");
+                           %>
                             <table>
                                 <tr>
                                     <td>
                                         ingrese su contraseña actual:
                                     </td>
                                     <td>
-                                        <input id="entrada2" type="password" placeholder="123456" required>
+                                        <input name="actContra" id="entrada2" type="password" placeholder="123456" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -38,7 +43,7 @@
                                         ingrese su nueva contraseña:
                                     </td>
                                     <td>
-                                        <input id="entrada2" type="password" placeholder="123456" required>
+                                        <input name="nContra1" id="entrada2" type="password" placeholder="123456" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -46,7 +51,7 @@
                                         Reingrese su nueva contraseña:
                                     </td>
                                     <td>
-                                        <input id="entrada2" type="password" placeholder="123456" required>
+                                        <input name="nContra2" id="entrada2" type="password" placeholder="123456" required>
                                     </td>
                                 </tr>
                                 <tr>

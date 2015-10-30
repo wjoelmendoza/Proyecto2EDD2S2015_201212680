@@ -66,7 +66,10 @@ public class LoginUser extends HttpServlet {
         HttpSession sesion = request.getSession();
         if(aux != null){
             if(aux.getPassword().equals(contra)){
-                sesion.setAttribute("usuarioL", new UserF(aux.getCorreo(),aux.getNombre()));
+                UserF nuevo = new UserF(aux.getCorreo(), aux.getNombre());
+                nuevo.setFoto(aux.getFoto());
+                nuevo.setExt(aux.getExt());
+                sesion.setAttribute("usuarioL", nuevo);
                 processRequest(request, response);
             }else
                 response.sendRedirect("/Facebook/");    
@@ -90,5 +93,5 @@ public class LoginUser extends HttpServlet {
         return port.buscarUsuario(pBusqueda);
     }
 
-    
+
 }

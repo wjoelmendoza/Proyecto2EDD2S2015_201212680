@@ -3,7 +3,7 @@
 <div id="cssmenu">
     <ul>
         <li><a href="/Facebook/"><span>Iniciar Sesión</span></a></li>
-        <li><a href="/Facebook/crear_usuario.jsp"><span>Crear Usuario</span></a></li>
-        <li><a href="#"><span>Acerca De...</span></a></li>
+        <li><a href="crear_usuario.jsp"><span>Crear Usuario</span></a></li>
+        <li><a href="about.jsp"><span>Acerca De...</span></a></li>
     </ul>
 </div>

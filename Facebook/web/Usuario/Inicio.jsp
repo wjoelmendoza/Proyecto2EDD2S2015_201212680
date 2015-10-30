@@ -18,6 +18,7 @@
         <div id="page">
            <%@include file="../WEB-INF/jspf/header.jspf"  %>
            <div id="mainarea">
+              
                <%@include file="../WEB-INF/jspf/menu_u.jspf" %>
                <div id="contentarea">
                    <div id="contenido">
@@ -40,15 +41,15 @@
                                         for(int i =0; i< result.size(); i++){
                                             out.println("<div id ='publicaciones'>");
                                             out.println("<div id='eliminar'>");
-                                            out.println("<form>");
+                                            out.println("<form method='post' action='/Facebook/EliminarComentario'>");
                                             out.println("<input name='uCorreo' value='" + user.getCorreo()+"' hidden >");
                                             out.println("<input name='sCorreo' value='" +user.getCorreo()+"' hidden>");
                                             out.println("<input name='index' value='" +i+"' hidden>");
                                             out.println("<input id='btne' type='submit' value='x'>");
-                                            out.println("<form>");
+                                            out.println("</form>");
                                             out.println("</div>");
-                                            out.println("titulo: " + result.get(i).getTitulo()+"<br>");
-                                            out.println("comentario: " + result.get(i).getContenido()+"<br>");  
+                                            out.println("<h4>titulo:</h4>" + result.get(i).getTitulo()+"<br>");
+                                            out.println("<h4>comentario:</h4> " + result.get(i).getContenido()+"<br>");  
                                             out.println("</div>");
                                         }
                                     }else

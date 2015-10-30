@@ -1,6 +1,12 @@
 /**
 * ojo esto podria dar conflictos
 */
+#foto{
+  background: #31bcc8;
+}
+#fotop{
+  width: 150px;
+}
 #eliminar{
   direction: rtl;
   margin-top: -20px ;
