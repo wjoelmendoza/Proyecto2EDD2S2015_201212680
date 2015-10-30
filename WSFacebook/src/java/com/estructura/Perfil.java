@@ -19,6 +19,8 @@ public class Perfil implements Comparar {
     private String correo;
     private String password;
     private String nombre;
+    private String foto;
+    private String ext;
     private AVLSeguidores seguidores;
     private AVLSeguidores sigo;
     private ListaEventos eventos;
@@ -45,10 +47,14 @@ public class Perfil implements Comparar {
     }
     
     public void eliminarPublicacion(String correo, int pos){
-        Seguidor aux = seguidores.buscar(correo);
-        if(aux!=null){
-            aux.eliminarPublicacion(pos);
-        }
+       if(correo.equals(this.correo)){
+           publicacion.eliminarPublicacion(pos);
+       }else{
+            Seguidor aux = seguidores.buscar(correo);
+            if(aux!=null){
+                aux.eliminarPublicacion(pos);
+            }
+       }
     }
     
     public void agregarPSigo(String correo, String nombre){
@@ -78,8 +84,11 @@ public class Perfil implements Comparar {
     
     public void graficarPublicacion(String correo){
         if(correo.equals(this.correo)){
-            
+            publicacion.graficar("publicaciones");
         }else{
+            Seguidor aux = seguidores.buscar(correo);
+            if(aux!=null)
+                aux.graficarPublicacion();
         }
     }
     
@@ -87,6 +96,8 @@ public class Perfil implements Comparar {
         this.correo = correo;
         this.nombre = nombre;
         this.password= password;
+        foto="";
+        ext="";
         seguidores = new AVLSeguidores();
         sigo = new AVLSeguidores();
         eventos = new ListaEventos();
@@ -187,5 +198,28 @@ public class Perfil implements Comparar {
     
     public Publicacion[] getPublicaciones(){
         return publicacion.getPublicaciones();
+    }
+    
+  
+    public void setFoto(String foto, String ext){
+        this.foto = foto;
+        this.ext = ext;
+    }
+    
+    public void setFoto(String foto){
+        this.foto= foto;
+    }
+    
+    public void setExt(String ext){
+        this.ext= ext;
+    }
+  
+    public String getFoto(){
+        return foto;
+    }
+
+   
+    public String getExt(){
+        return ext;
     }
 }

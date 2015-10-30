@@ -35,17 +35,6 @@ public class WSFacebook {
         usuarios.insertarClave(new Perfil(uCorreo, uNombre,uContra));
     }
 
-    /**
-     * Web service operation
-     * @param pBusqueda
-     * @return 
-     */
-    @WebMethod(operationName = "buscarUsuario")
-    public Perfil buscarUsuario(@WebParam(name = "pBusqueda") String pBusqueda) {
-        //TODO write your implementation code here:
-        Perfil aux = usuarios.buscarElemento(new Perfil(pBusqueda));
-        return aux;
-    }
 
     /**
      * Web service operation
@@ -217,10 +206,15 @@ public class WSFacebook {
 
     /**
      * Web service operation
+     * @param uCorreo
+     * @param sCorreo
+     * @param pos
      */
     @WebMethod(operationName = "eliminarComentario")
     @Oneway
     public void eliminarComentario(@WebParam(name = "uCorreo") String uCorreo, @WebParam(name = "sCorreo") String sCorreo, @WebParam(name = "pos") int pos) {
+        Perfil aux = usuarios.buscarElemento(new Perfil(uCorreo));
+        aux.eliminarPublicacion(sCorreo, pos);
     }
 
     /**
@@ -263,7 +257,71 @@ public class WSFacebook {
         return aux.getPublicaciones();
     }
     
-   
-
+   /**
+    * Web Service operation
+    * @param uCorreo
+    * @param actContra
+    * @param nContra
+    */
+    @WebMethod(operationName ="cambioContra")
+    @Oneway
+    public void cambioContra(@WebParam(name = "uCorreo") String uCorreo,@WebParam(name = "actContra") String actContra, @WebParam(name = "nContra") String nContra){
+        Perfil aux = usuarios.buscarElemento(new Perfil(uCorreo));
+        if(aux!=null){
+            if(aux.getPassword().equals(actContra))
+                aux.setPassword(nContra);
+        }
+    }
     
+    /**
+     * Web service operation
+     * @param uCorreo
+     * @param sCorreo
+     */
+    @WebMethod(operationName = "graphPublicacion")
+    @Oneway
+    public void graphPublicacione(@WebParam(name = "uCorreo") String uCorreo, @WebParam(name = "sCorreo") String sCorreo){
+        Perfil aux = usuarios.buscarElemento(new Perfil(uCorreo));
+        if(aux!=null)
+            aux.graficarPublicacion(sCorreo);
+    }
+
+    /**
+     * Web service operation
+     * @param uCorreo
+     * @param ext
+     * @param uFoto
+     */
+    @WebMethod(operationName = "cargarFoto")
+    @Oneway
+    public void cargarFoto(@WebParam(name = "uCorreo") String uCorreo, @WebParam(name = "ext") String ext, @WebParam(name = "uFoto") String uFoto) {
+        Perfil aux = usuarios.buscarElemento(new Perfil(uCorreo));
+        if(aux!=null){
+            aux.setFoto(uFoto, ext);
+        }
+    }
+
+    /**
+     * Web service operation
+     * @param pBusqueda
+     * @return 
+     */
+    @WebMethod(operationName = "buscarUsuario")
+    public Perfil buscarUsuario(@WebParam(name = "pBusqueda") String pBusqueda) {
+        Perfil aux = usuarios.buscarElemento(new Perfil(pBusqueda));
+        return aux;
+    }
+
+    /**
+     * Web service operation
+     * @param uCorreo
+     * @return 
+     */
+    @WebMethod(operationName = "obtenerFoto")
+    public String obtenerFoto(@WebParam(name = "uCorreo") String uCorreo) {
+        Perfil aux = usuarios.buscarElemento(new Perfil(uCorreo));
+        return aux.getFoto();
+    }
+    
+
 }

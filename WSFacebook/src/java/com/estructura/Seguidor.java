@@ -84,4 +84,8 @@ public class Seguidor implements Comparar{
     public void eliminarPublicacion(int pos){
         publicaciones.eliminarPublicacion(pos);
     }
+    
+    public void graficarPublicacion(){
+        publicaciones.graficar("publicaciones");
+    }
 }
