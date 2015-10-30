@@ -1,0 +1,18 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="com.usuarios.UserF"%>
+<%@page import = "java.io.IOException" %>
+<%@ page pageEncoding="UTF-8" %>
+<%!
+    /**
+     * este metodo valida si el usuario ya se encuentra logueado
+     */
+
+     public void validarSesion(HttpSession sesion, HttpServletResponse response)throws ServletException,IOException{
+         UserF user = (UserF) sesion.getAttribute("usuarioL");
+         if(user == null){
+             response.sendRedirect("/Facebook/");
+             System.out.println("no tiene permiso");
+         }
+         
+     }
+%>

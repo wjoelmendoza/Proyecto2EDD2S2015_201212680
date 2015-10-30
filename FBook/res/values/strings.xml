@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FBook</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+	<string name ="btn">prueba</string>
+	<string name="textview">TextView</string>
+	<string name="btn_ok">OK</string>
+	<string name="btn_cancel">Cancelar</string>
+	<string name="txtv_correo">Correo</string>
+	<string name="txtv_pass">Contraseña</string>
+	<string name="txtv_crear" >Crear</string>
+	<string name="txtv_nombre">Nombre</string>
+	<string name="txt_contra">Contraseña</string>
+	<string name="txtv_rcorreo">RContraseña</string>
+</resources>

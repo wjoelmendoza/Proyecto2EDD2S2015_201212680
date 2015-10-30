@@ -1,0 +1,47 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@page import="com.usuarios.UserF"%>
+<div id="foto">
+        <%
+            HttpSession sesion2 = request.getSession();
+            UserF user2 = (UserF) sesion2.getAttribute("usuarioL");
+            if(!user2.getFoto().isEmpty()){%>
+            <img id = "fotop" src="data:image/<%=user2.getExt()%>;base64,<%=(String)user2.getFoto()%>"/>
+            
+            <%}%>
+            <font style="color: white;font-size:large"><b><%=user2.getNombre()%></b></font>
+            <%
+        %>    
+</div>
+
+<div id='cssmenu'>
+    <ul>
+        <li><a href="Inicio.jsp"><span>Inicio</span></a></li>
+        <li><a href='BuscarPersona.jsp'><span>Buscar</span></a></li>
+        <li class="active has-sub" ><a><span>Publicación</span></a>
+            <ul>
+                <li><a href="Publicar.jsp"><span>Personal</span></a></li>
+                <li><a><span>Foto personal</span></a></li>
+                <li><a href="publicar_s.jsp"><span>a amigo</span></a></li>
+                <li><a><span>Foto de amigo</span></a></li>
+            </ul>
+        </li>
+        <li class="active has-sub"><a><span>Eventos</span></a>
+            <ul>
+                <li><a href="#"><span>Cancelar</span></a></li>
+                <li><a href="#"><span>Crear</span></a></li>
+            </ul>
+        </li>
+        <li class="active has-sub"><a><span>Configuración</span></a>
+            <ul>
+                <li><a href="actualiza_perfil.jsp"><span>Actualizar Datos</span></a></li>
+                <li><a href="cambiar_correo.jsp"><span>Cambiar Correo</span></a></li>
+                <li><a href="cambiar_password.jsp"><span>Cambiar Contraseña</span></a></li>
+                <li><a href="EliminarPerfil.jsp"><span>Eliminar perfil</span></a></li>
+                <li><a href="subir_foto.jsp"><span>Foto de Perfil</span></a></li>
+                <li><a href="ver_perfil.jsp"><span>Perfil</span></a></li>
+            </ul>
+        </li>
+    	<li><a href="/Facebook/Salir"><span>Salir</span></a></li>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+        <%@page import="com.usuarios.UserF"%>
+        <div id="foto">
+        <%
+            HttpSession sesion2 = request.getSession();
+            UserF user2 = (UserF) sesion2.getAttribute("usuarioL");
+            if(!user2.getFoto().isEmpty()){%>
+            <img id = "fotop" src="data:image/<%=user2.getExt()%>;base64,<%=(String)user2.getFoto()%>"/>
+            
+            <%}%>
+            <font style="color: white;font-size:large"  ><b><%=user2.getNombre()%><b></font>
+            <%
+        %>    
+        
+        </div>

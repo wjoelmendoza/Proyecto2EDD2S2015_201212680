@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://webservice.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice.com/">
+
+<xs:element name="actPerfil" type="tns:actPerfil" />
+
+<xs:element name="agregarUsuario" type="tns:agregarUsuario" />
+
+<xs:element name="buscarUsuario" type="tns:buscarUsuario" />
+
+<xs:element name="buscarUsuarioResponse" type="tns:buscarUsuarioResponse" />
+
+<xs:element name="eliminarPerfil" type="tns:eliminarPerfil" />
+
+<xs:element name="graficarArbolB" type="tns:graficarArbolB" />
+
+<xs:element name="graficarSeguidores" type="tns:graficarSeguidores" />
+
+<xs:complexType name="buscarUsuario">
+<xs:sequence>
+<xs:element name="pBusqueda" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:perfil" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="perfil">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0" />
+<xs:element name="edad" type="xs:int" />
+<xs:element name="estdoC" type="xs:string" minOccurs="0" />
+<xs:element name="genero" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="pais" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actPerfil">
+<xs:sequence>
+<xs:element name="uEdad" type="xs:int" />
+<xs:element name="uNombre" type="xs:string" minOccurs="0" />
+<xs:element name="estCivil" type="xs:string" minOccurs="0" />
+<xs:element name="uGenero" type="xs:string" minOccurs="0" />
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="uPais" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarPerfil">
+<xs:sequence>
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="uContra" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graficarSeguidores">
+<xs:sequence>
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graficarArbolB">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="agregarUsuario">
+<xs:sequence>
+<xs:element name="uContra" type="xs:string" minOccurs="0" />
+<xs:element name="uCorreo" type="xs:string" minOccurs="0" />
+<xs:element name="uNombre" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
